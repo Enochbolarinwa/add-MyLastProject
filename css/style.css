@@ -1,0 +1,118 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.blue{
+    margin-left: 20px;
+    margin-top: 50px;
+    display: flex;
+    gap: 50px;
+    background-color: #f2f2f2;
+}
+.yellow{
+    margin-left: 600px;
+   margin-bottom: 20px;
+}
+.red{
+    margin-left: 900px ;
+    margin-top: 10px;
+}
+.black{
+    background-image: url(../img/2024-car-segment-masthead-01.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 90vh;
+    font-size: 40px;
+    color: white;
+}
+.brown{
+    margin-left: 20px;
+}
+.orange{
+    margin-top: 50px;
+}
+.white{
+    margin-top: 30px;
+    display: flex;
+}
+.cream{
+    display: flex;
+    gap: 50px;
+    font-size: 30px;
+}
+.navy{
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+}
+.Our{
+    background-color: rgb(57, 57, 247);
+}
+.ad1{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.idk{
+    height: 300px;
+    width: 100%;
+    background-color: brown;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+.tahoe{
+    margin-top: 20px;
+}
+.dark{
+    display: flex;
+    justify-content: space-around;
+    background-color: brown;
+}
+.light{
+    background-color: brown;
+    justify-content: space-around;
+    display: flex;
+ 
+}
+.grey{
+    margin-top: 30px;
+}
+.yellow{
+    background-color: #f2f2f2;
+}
+.shop{
+    margin-top: 10px;
+}
+.mop{
+    margin-top: 10px;
+}
+.green{
+    background-color: #f2f2f2;
+}
+.list{
+    list-style: none;
+    gap: 30px;
+}
+.first{
+    display: flex;
+    list-style: none;
+    margin-left: 50px;
+    line-height: 40px;
+}
+.gm{
+    margin-top: 30px;
+    gap: 30px;
+    margin-left: 70px;
+}
+.van{
+    margin-top: 30px;
+    gap: 30px;
+    margin-left: 50px;
+}
+.get{
+    border-radius: 20px brown;
+    
+}
+.penP{
+    display: flex;
+}

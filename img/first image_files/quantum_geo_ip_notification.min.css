@@ -1,0 +1,78 @@
+/*!
+ * 
+ * date: Mon Jul 29 2024 12:38:33 GMT-0400 (Eastern Daylight Time)
+ * brand: chevrolet
+ *
+ * Copyright (c) 2024 General Motors Corp. All Rights Reserved.
+ * This material is solely and exclusively owned by General Motors and may not
+ * be reproduced elsewhere without prior written approval.
+ *//*!
+ * 
+ * name: @gbds/quantum
+ * version: 1.4.9
+ * @gbds/core dependency version: 4.4.0
+ * date: Mon Jul 29 2024 12:00:28 GMT-0400 (Eastern Daylight Time)
+ * Copyright 2020 GM Global Technology Operations LLC
+ * All Rights Reserved.
+ * This software is proprietary to GM Global Technology Operations LLC
+ * and is protected by intellectual property laws and international
+ * intellectual property treaties. Your access to this software is governed
+ * by the terms of your license agreement with GM Global Technology Operations LLC.
+ * Any other use of the software is strictly prohibited.
+ * 
+ */gb-geo-ip-notification .gb-geo-ip-notification-container{display:block;padding:2rem;position:relative}
+gb-geo-ip-notification .gb-geo-ip-notification-container.gb-geoip-notification-inactive{display:none}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container{display:flex;flex:0 0 100%;flex-wrap:wrap;margin-top:1rem;width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{box-sizing:border-box;display:flex;flex:100%;height:100%;max-width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{display:flex;flex:100%;margin-top:1rem;max-width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container .gb-geo-ip-notification-dropdown{-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:inherit;width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{display:flex;flex:100%;margin-top:1rem;max-width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button{height:3.846rem;text-decoration:none}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-close-icon-container{background:transparent;padding:1rem;position:absolute;right:0;top:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-close-icon-container .gb-geo-ip-close{background:url("data:image/svg+xml,%3C%3Fxml%20version=%271.0%27%20%3F%3E%3C%21DOCTYPE%20svg%20PUBLIC%20%27-//W3C//DTD%20SVG%201.1//EN%27%20%27http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%27%3E%3Csvg%20enable-background=%27new%200%200%2032%2032%27%20id=%27Close_Circle_White%27%20version=%271.1%27%20viewBox=%270%200%2032%2032%27%20xml:space=%27preserve%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%3E%3Cg%20id=%27Close%20Circle%27%3E%3Cpath%20fill=%27%23ffffff%27%20clip-rule=%27evenodd%27%20d=%27M16,0C7.163,0,0,7.163,0,16c0,8.836,7.163,16,16,16%20c8.836,0,16-7.163,16-16C32,7.163,24.836,0,16,0z%20M16,30C8.268,30,2,23.732,2,16C2,8.268,8.268,2,16,2s14,6.268,14,14%20C30,23.732,23.732,30,16,30z%27%20fill-rule=%27evenodd%27%20/%3E%3Cpath%20fill=%27%23ffffff%27%20clip-rule=%27evenodd%27%20d=%27M22.729,21.271l-5.268-5.269l5.238-5.195%20c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.39-1.034-0.39-1.428,0l-5.231,5.188l-5.309-5.31c-0.394-0.396-1.034-0.396-1.428,0%20c-0.394,0.395-0.394,1.037,0,1.432l5.301,5.302l-5.331,5.287c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.429,0%20l5.324-5.28l5.276,5.276c0.394,0.396,1.034,0.396,1.428,0C23.123,22.308,23.123,21.667,22.729,21.271z%27%20fill-rule=%27evenodd%27%20/%3E%3C/g%3E%3C/svg%3E") no-repeat;display:inline-block}
+@media only screen and (min-width:800px){gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{flex:0 0 75%;max-width:75%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{flex:0 0 66%;max-width:66%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{flex:0 0 33.33%;max-width:33.33%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button{margin-inline-start:2rem}
+}
+@media only screen and (min-width:1200px){gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{flex:0 0 41.67%;max-width:41.67%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{flex:0 0 33.33%;margin-top:0;max-width:33.33%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container .gb-geo-ip-notification-dropdown{margin-inline-start:2rem}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{flex:0 0 25%;margin-top:0;max-width:25%}
+}
+.gb-align-left{text-align:left}
+.gb-align-center{text-align:center}
+.gb-align-right{text-align:right}
+html[dir=rtl] .align-left{text-align:right}
+html[dir=rtl] .align-right{text-align:left}
+gb-geo-ip-notification .gb-geo-ip-notification-container{background-color:#1a1a1a;font-family:Roboto,Helvetica,NanumGothic,sans-serif;padding:2rem;z-index:1}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-close-icon-container .gb-geo-ip-close{background:0;padding:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-close-icon-container .gb-geo-ip-close img{background-image:url("data:image/svg+xml,%3Csvg%20width=%2730%27%20height=%2730%27%20viewBox=%270%200%2050%2050%27%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath%20d=%27M25.000,50.000%20C11.215,50.000%200.000,38.785%200.000,25.001%20C0.000,11.215%2011.215,0.000%2025.000,0.000%20C38.785,0.000%2050.000,11.215%2050.000,25.001%20C50.000,38.785%2038.785,50.000%2025.000,50.000%20ZM25.000,2.632%20C12.666,2.632%202.632,12.666%202.632,25.001%20C2.632,37.335%2012.666,47.368%2025.000,47.368%20C37.333,47.368%2047.368,37.335%2047.368,25.001%20C47.368,12.666%2037.333,2.632%2025.000,2.632%20ZM35.403,35.405%20C35.146,35.662%2034.809,35.791%2034.473,35.791%20C34.136,35.791%2033.799,35.662%2033.542,35.405%20C33.542,35.405%2024.999,26.861%2024.999,26.861%20C24.999,26.861%2016.456,35.405%2016.456,35.405%20C16.199,35.662%2015.863,35.791%2015.526,35.791%20C15.189,35.791%2014.853,35.662%2014.596,35.405%20C14.082,34.891%2014.082,34.059%2014.596,33.545%20C14.596,33.545%2023.139,25.001%2023.139,25.001%20C23.139,25.001%2014.596,16.457%2014.596,16.457%20C14.082,15.943%2014.082,15.110%2014.596,14.596%20C15.110,14.082%2015.942,14.082%2016.456,14.596%20C16.456,14.596%2024.999,23.140%2024.999,23.140%20C24.999,23.140%2033.542,14.596%2033.542,14.596%20C34.056,14.082%2034.889,14.082%2035.403,14.596%20C35.917,15.110%2035.917,15.943%2035.403,16.457%20C35.403,16.457%2026.860,25.001%2026.860,25.001%20C26.860,25.001%2035.403,33.545%2035.403,33.545%20C35.917,34.059%2035.917,34.891%2035.403,35.405%20Z%27%20fill=%27%23ffffff%27/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;box-sizing:border-box;height:35px;width:35px}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{margin:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button{align-items:center;border:.125rem solid #b3842d;color:#fff;display:flex;font-size:16px;font-weight:700;height:70px;justify-content:center;line-height:1.67;padding:1rem 0;text-align:center;width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button:hover{background-color:#b3842d;color:#fff}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{height:3rem;margin-top:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container .gb-geo-ip-notification-dropdown{background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20preserveAspectRatio=%27xMidYMid%27%20width=%2712%27%20height=%2710%27%20viewBox=%270%200%2012%2010%27%3E%3Cdefs%3E%3Cstyle%3E%20.cls-2%20%7B%20fill:%20%23FFFFFF;%20%7D%20%3C/style%3E%3C/defs%3E%3Cpath%20d=%27M12.000,0.000%20C12.000,0.000%206.000,10.000%206.000,10.000%20C6.000,10.000%200.000,0.000%200.000,0.000%20C0.000,0.000%2012.000,0.000%2012.000,0.000%20Z%27%20id=%27path-1%27%20class=%27cls-2%27%20fill-rule=%27evenodd%27/%3E%3C/svg%3E%0A"),linear-gradient(to right,#808080,#808080);background-position:calc(100% - 1.42rem) center,100% 0;background-repeat:no-repeat;background-size:.625rem .625rem,3.5rem 100%;border:.063rem solid #b3b3b3;font-size:20px;height:70px;margin-bottom:0;padding:.5rem 4.2rem .5rem .6rem}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container .gb-geo-ip-notification-dropdown:hover{background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20preserveAspectRatio=%27xMidYMid%27%20width=%2712%27%20height=%2710%27%20viewBox=%270%200%2012%2010%27%3E%3Cdefs%3E%3Cstyle%3E%20.cls-2%20%7B%20fill:%20%23FFFFFF;%20%7D%20%3C/style%3E%3C/defs%3E%3Cpath%20d=%27M12.000,0.000%20C12.000,0.000%206.000,10.000%206.000,10.000%20C6.000,10.000%200.000,0.000%200.000,0.000%20C0.000,0.000%2012.000,0.000%2012.000,0.000%20Z%27%20id=%27path-1%27%20class=%27cls-2%27%20fill-rule=%27evenodd%27/%3E%3C/svg%3E%0A"),linear-gradient(to right,#000,#000)}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{box-sizing:border-box;color:#6e6e6e;display:block;font-size:16px;height:100%;line-height:30px}
+@media only screen and (max-width:799px){gb-geo-ip-notification .gb-geo-ip-notification-container{display:flex;padding:2rem 1rem}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container{align-items:center;height:100%;margin:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{height:auto}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{height:auto;margin-top:1rem;padding-left:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{height:auto;justify-content:center;margin-top:1rem}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button{font-size:12px}
+}
+@media only screen and (min-width:800px)and (max-width:1199px){gb-geo-ip-notification .gb-geo-ip-notification-container{padding:2rem 4rem}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-close-icon-container .gb-geo-ip-close img{height:30px;width:30px}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container{margin-top:0}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{max-width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{margin-top:1rem;max-width:40%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container .gb-geo-ip-notification-dropdown{height:60px}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{margin-top:1rem;max-width:40%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container .gb-geo-ip-button{height:60px}
+}
+@media only screen and (min-width:1200px){gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container{justify-content:center;width:100%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-text{font-size:18px;max-width:33.3%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-dropdown-container{max-width:33.3%}
+gb-geo-ip-notification .gb-geo-ip-notification-container .gb-geo-ip-notification-text-dropdown-button-container .gb-geo-ip-notification-continue-button-container{margin-left:1rem;max-width:33.3%}
+}

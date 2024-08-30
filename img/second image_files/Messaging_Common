@@ -1,0 +1,579 @@
+//Version 08_27_24_Release
+var vSFM_Environment        = 'PROD'; //DEV INT QA TRAIN PROD
+
+//Styles
+//document.write('<style> .embedded-messaging > .embeddedMessagingFrame[class~="isMaximized"] {height:475px !important;}</style>');
+let link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = 'https://gm-onecrm.my.salesforce-sites.com/messaging/resource/Messaging_Common_Style';
+document.getElementsByTagName('BODY')[0].appendChild(link);
+
+var vSFM_Experience         = null;
+var vSFM_Brand              = null;
+var vSFM_Country            = null;
+var vSFM_Language           = null;
+var vSFM_Launch_URL         = location.protocol + '//' + location.host + location.pathname;
+vSFM_Launch_URL             = vSFM_Launch_URL.substring(0,100);
+
+var vSFM_Hide_Button        = false;
+var vSFM_Channel_Menu	    = false;
+
+//Auth Websites
+var vSFM_First_Name         = null;
+var vSFM_Last_Name          = null;
+var vSFM_Email              = null;
+var vSFM_Phone              = null;
+var vSFM_Authenticated_ID_1  = null;
+var vSFM_Authenticated_ID_2  = null;
+var vSFM_Token              = null;
+var vSFM_VIN_1              = null;
+var vSFM_VIN_2              = null;
+var vSFM_VIN_3              = null;
+var vSFM_VIN_4              = null;
+var vSFM_VIN_5              = null;
+var vSFM_VIN_6              = null;
+var vSFM_VIN_7              = null;
+var vSFM_VIN_8              = null;
+var vSFM_VIN_9              = null;
+var vSFM_VIN_10             = null;
+var vSFM_VIN_11             = null;
+var vSFM_VIN_12             = null;
+var vSFM_VIN_13             = null;
+var vSFM_VIN_14             = null;
+var vSFM_VIN_15             = null;
+
+//Setup values
+var vSFM_Authenicated_ID_1  = null;
+var vSFM_Authenicated_ID_2  = null;
+
+if (vSFM_Authenicated_ID_1 != '' && vSFM_Authenticated_ID_1 == '' ) {
+    vSFM_Authenticated_ID_1 = vSFM_Authenicated_ID_1;
+}
+if (vSFM_Authenicated_ID_2 != '' && vSFM_Authenticated_ID_2 == '' ) {
+    vSFM_Authenticated_ID_2 = vSFM_Authenicated_ID_2;
+}
+
+var vSFM_ORG_ID             = null;
+var vSFM_ORG_Domain         = null;
+var vSFM_Auth               = false;
+
+var vSFM_ESD_Develper_Name_A  = null;
+var vSFM_ESD_Site_A           = null;
+var vSFM_ESD_Develper_Name_UA = null;
+var vSFM_ESD_Site_UA          = null;
+
+switch(vSFM_Environment) {
+    case 'DEV':
+        vSFM_ORG_ID             = '00Ddx0000000GeH';
+        vSFM_ORG_Domain         = 'gm-onecrm--msgdev01';
+        break;
+    case 'INT':
+        vSFM_ORG_ID             = '00DDT000000Bzq1';
+        vSFM_ORG_Domain         = 'gm-onecrm--int';
+        break;
+    case 'QA':
+        vSFM_ORG_ID             = '00DDQ0000008jEi';
+        vSFM_ORG_Domain         = 'gm-onecrm--qa';
+        break;
+    case 'TRAIN':
+        vSFM_ORG_ID             = '00DDI0000008jFd';
+        vSFM_ORG_Domain         = 'gm-onecrm--training';
+        break;
+    case 'PROD':
+        vSFM_ORG_ID             = '00DDn00000DCkt8';
+        vSFM_ORG_Domain         = 'gm-onecrm';
+        break;
+    default:
+        vSFM_ORG_ID             = null;
+        vSFM_ORG_Domain         = null;
+}
+
+var vSFM_ORG_URL_Site       = null;
+var vSFM_ORG_URL_Scrt       = null;
+var vSFM_ORG_URL_Salesforce_Site = null;
+
+if (vSFM_Environment == 'PROD') {
+
+    vSFM_ORG_URL_Site            = 'https://'+vSFM_ORG_Domain+'.my.site.com';
+    vSFM_ORG_URL_Scrt            = 'https://'+vSFM_ORG_Domain+'.my.salesforce-scrt.com';
+    vSFM_ORG_URL_Salesforce_Site = 'https://'+vSFM_ORG_Domain+'.my.salesforce-sites.com';
+
+}else{
+
+    vSFM_ORG_URL_Site            = 'https://'+vSFM_ORG_Domain+'.sandbox.my.site.com';
+    vSFM_ORG_URL_Scrt            = 'https://'+vSFM_ORG_Domain+'.sandbox.my.salesforce-scrt.com';
+    vSFM_ORG_URL_Salesforce_Site = 'https://'+vSFM_ORG_Domain+'.sandbox.my.salesforce-sites.com';
+
+}
+
+var vSFM_BS_Language = null;
+
+
+
+function scriptLoaded() {
+
+    vSFM_Language = (vSFM_Language != '' && vSFM_Language != null) ? vSFM_Language : 'English';
+
+    SFM_Translate_Variables();
+    SFM_Process();
+
+    //if (vSFM_Environment != 'PROD') {
+        SFM_Console_Log();
+    //}
+
+
+
+	window.addEventListener("onEmbeddedMessagingReady", () => {
+
+		console.log("## Received the onEmbeddedMessagingReady event");
+    	
+        	// Send data to Salesforce
+            if ( vSFM_Auth ) {
+
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(
+                    {
+                        "Experience" :      vSFM_Experience,
+                        "Brand":            vSFM_Brand,
+                        "Country" :         vSFM_Country,
+                        "Language" :        vSFM_Language,
+                        "Language_Code" :   vSFM_BS_Language,
+                        "Launch_URL" :      vSFM_Launch_URL,
+                        "Auth_First_Name" : vSFM_First_Name,
+                        "Auth_Last_Name" :  vSFM_Last_Name,
+                        "Auth_Email" :      vSFM_Email,
+                        "Auth_Phone" :      vSFM_Phone,
+                        "Auth_ID_1" :       vSFM_Authenticated_ID_1,
+                        "Auth_ID_2" :       vSFM_Authenticated_ID_2,
+                        "VIN_1" :           vSFM_VIN_1,
+                        "VIN_2" :           vSFM_VIN_2,
+                        "VIN_3" :           vSFM_VIN_3,
+                        "VIN_4" :           vSFM_VIN_4,
+                        "VIN_5" :           vSFM_VIN_5,
+                        "VIN_6" :           vSFM_VIN_6,
+                        "VIN_7" :           vSFM_VIN_7,
+                        "VIN_8" :           vSFM_VIN_8,
+                        "VIN_9" :           vSFM_VIN_9,
+                        "VIN_10" :           vSFM_VIN_10,
+                        "VIN_11" :           vSFM_VIN_11,
+                        "VIN_12" :           vSFM_VIN_12,
+                        "VIN_13" :           vSFM_VIN_13,
+                        "VIN_14" :           vSFM_VIN_14,
+                        "VIN_15" :           vSFM_VIN_15
+                    }
+                );
+
+            }else{
+
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(
+                    {
+                        "Experience" :  vSFM_Experience,
+                        "Brand":        vSFM_Brand,
+                        "Country" :     vSFM_Country,
+                        "Language" :    vSFM_Language,
+                        "Language_Code" : vSFM_BS_Language,
+                        "Launch_URL" :   vSFM_Launch_URL
+
+                    }
+                );
+
+            }
+    
+	});
+
+	if ( ! vSFM_Channel_Menu ) {
+
+		initEmbeddedMessaging();
+	}
+}
+
+function initEmbeddedMessaging() {
+
+    console.log("## BS Language: " + vSFM_BS_Language);
+
+    try {
+
+        embeddedservice_bootstrap.settings.language = vSFM_BS_Language; // For example, enter 'en' or 'en-US'
+
+	//Hide chat from some pages
+	var vSFM_Launch_Pathname = location.pathname.toLowerCase();
+        if (vSFM_Experience == 'OnStar'  && (vSFM_Launch_Pathname.indexOf('/public-safety') >= 0 || vSFM_Launch_Pathname.indexOf('/business-solutions') >= 0 || vSFM_Launch_Pathname.indexOf('/legal/connected-terms') >= 0)  ) {
+            embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+        }
+
+        if (vSFM_Experience == 'Mexico OnStar'  && ( vSFM_Launch_Pathname.indexOf('/business-solutions') >= 0 ) ) {
+            embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+        }
+
+        // Override default behavior and hide the chat button at initialization
+        if (vSFM_Hide_Button) {
+            embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+        }
+
+        embeddedservice_bootstrap.init(
+            vSFM_ORG_ID ,
+            vSFM_ESD_Develper_Name,
+            vSFM_ORG_URL_Site + '/'+ vSFM_ESD,
+            {
+                scrt2URL: vSFM_ORG_URL_Scrt
+            }
+        );
+    } catch (err) {
+        console.error('## Error loading Embedded Messaging: ', err);
+    }
+};
+
+function SFM_End_Session() {
+
+    embeddedservice_bootstrap.userVerificationAPI.clearSession()
+     .then(() => {
+     })
+     .catch(error => {
+     })
+     .finally(() => {
+     });
+
+}
+
+function SFM_Reset_Prechat() {
+
+    console.log("## Called SFM_Reset_Prechat ##");
+    SFM_Translate_Variables();
+    SFM_Process();
+    SFM_Console_Log();
+
+        console.log("## Received the Reset onEmbeddedMessagingReady event");
+        
+            if ( vSFM_Auth ) {
+
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(
+                    {
+                        "Experience" :      vSFM_Experience,
+                        "Brand":            vSFM_Brand,
+                        "Country" :         vSFM_Country,
+                        "Language" :        vSFM_Language,
+                        "Language_Code" :   vSFM_BS_Language,
+                        "Launch_URL" :      vSFM_Launch_URL,
+                        "Auth_First_Name" : vSFM_First_Name,
+                        "Auth_Last_Name" :  vSFM_Last_Name,
+                        "Auth_Email" :      vSFM_Email,
+                        "Auth_Phone" :      vSFM_Phone,
+                        "Auth_ID_1" :       vSFM_Authenticated_ID_1,
+                        "Auth_ID_2" :       vSFM_Authenticated_ID_2,
+                        "VIN_1" :           vSFM_VIN_1,
+                        "VIN_2" :           vSFM_VIN_2,
+                        "VIN_3" :           vSFM_VIN_3,
+                        "VIN_4" :           vSFM_VIN_4,
+                        "VIN_5" :           vSFM_VIN_5,
+                        "VIN_6" :           vSFM_VIN_6,
+                        "VIN_7" :           vSFM_VIN_7,
+                        "VIN_8" :           vSFM_VIN_8,
+                        "VIN_9" :           vSFM_VIN_9,
+                        "VIN_10" :           vSFM_VIN_10,
+                        "VIN_11" :           vSFM_VIN_11,
+                        "VIN_12" :           vSFM_VIN_12,
+                        "VIN_13" :           vSFM_VIN_13,
+                        "VIN_14" :           vSFM_VIN_14,
+                        "VIN_15" :           vSFM_VIN_15
+                    }
+                );
+
+            }else{
+
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(
+                    {
+                        "Experience" :  vSFM_Experience,
+                        "Brand":        vSFM_Brand,
+                        "Country" :     vSFM_Country,
+                        "Language" :    vSFM_Language,
+                        "Language_Code" : vSFM_BS_Language,
+                        "Launch_URL" :   vSFM_Launch_URL
+
+                    }
+                );
+
+            }
+
+}
+
+function SFM_LaunchChat() {
+    embeddedservice_bootstrap.utilAPI.launchChat()
+        .then(() => {
+        }).catch(() => {
+        }).finally(() => {
+        });
+}
+
+function SFM_Translate_Variables() {
+
+    vSFM_Country  = vSFM_Country.toLowerCase();
+    vSFM_Language = vSFM_Language.toLowerCase();
+
+    switch(vSFM_Country) {
+        case 'united states':
+            vSFM_Country            = 'United States';
+            break;
+        case 'us':
+            vSFM_Country            = 'United States';
+            break;
+        case 'canada':
+            vSFM_Country            = 'Canada';
+            break;
+        case 'ca':
+            vSFM_Country            = 'Canada';
+            break;
+        case 'en_ca':
+            vSFM_Country            = 'Canada';
+            break;
+        case 'mexico':
+            vSFM_Country            = 'Mexico';
+            break;
+        case 'mx':
+            vSFM_Country            = 'Mexico';
+            break;
+        case 'europe':
+            vSFM_Country            = 'Europe';
+            break;
+        case 'france':
+            vSFM_Country            = 'France';
+            break;
+        case 'fr':
+            vSFM_Country            = 'France';
+            break;
+        case 'sweden':
+            vSFM_Country            = 'Sweden';
+            break;
+        case 'se':
+            vSFM_Country            = 'Sweden';
+            break;
+        case 'switzerland':
+            vSFM_Country            = 'Switzerland';
+            break;
+        case 'ch':
+            vSFM_Country            = 'Switzerland';
+            break;
+        case 'germany':
+            vSFM_Country            = 'Germany';
+            break;
+        case 'de':
+            vSFM_Country            = 'Germany';
+            break;
+
+        case 'bahrain':
+            vSFM_Country            = 'Bahrain';
+            break;
+        case 'br':
+            vSFM_Country            = 'Bahrain';
+            break;
+        case 'iraq':
+            vSFM_Country            = 'Iraq';
+            break;
+        case 'iq':
+            vSFM_Country            = 'Iraq';
+            break;
+        case 'jordan':
+            vSFM_Country            = 'Jordan';
+            break;
+        case 'jo':
+            vSFM_Country            = 'Jordan';
+            break;
+        case 'kuwait':
+            vSFM_Country            = 'Kuwait';
+            break;
+        case 'kw':
+            vSFM_Country            = 'Kuwait';
+            break;
+        case 'lebanon':
+            vSFM_Country            = 'Lebanon';
+            break;
+        case 'lb':
+            vSFM_Country            = 'Lebanon';
+            break;
+        case 'middle east':
+            vSFM_Country            = 'Middle East';
+            break;
+        case 'saudi arabia':
+            vSFM_Country            = 'Saudi Arabia';
+            break;
+        case 'sa':
+            vSFM_Country            = 'Saudi Arabia';
+            break;
+        case 'oman':
+            vSFM_Country            = 'Oman';
+            break;
+        case 'om':
+            vSFM_Country            = 'Oman';
+            break;
+        case 'qatar':
+            vSFM_Country            = 'Qatar';
+            break;
+        case 'qa':
+            vSFM_Country            = 'Qatar';
+            break;
+        case 'united arab emirates (uae)':
+            vSFM_Country            = 'United Arab Emirates (UAE)';
+            break;
+        case 'ae':
+            vSFM_Country            = 'United Arab Emirates (UAE)';
+            break;
+        case 'yemen':
+            vSFM_Country            = 'Yemen';
+            break;
+        case 'ye':
+            vSFM_Country            = 'Yemen';
+            break;
+        default:
+            vSFM_Country            = 'United States';
+    }
+
+    switch(vSFM_Language) {
+        case 'english':
+            vSFM_BS_Language        = 'en_US';
+            vSFM_Language           = 'English';
+            break;
+        case 'en':
+            vSFM_BS_Language        = 'en_US';
+            vSFM_Language           = 'English';
+            break;
+        case 'spanish':
+            vSFM_BS_Language        = 'es_MX';
+            vSFM_Language           = 'Spanish';
+            break;
+        case 'es':
+            vSFM_BS_Language        = 'es_MX';
+            vSFM_Language           = 'Spanish';
+            break;
+        case 'french':
+            vSFM_BS_Language        = 'fr';
+            vSFM_Language           = 'French';
+            break;
+        case 'fr':
+            vSFM_BS_Language        = 'fr';
+            vSFM_Language           = 'French';
+            break;
+        case 'german':
+            vSFM_BS_Language        = 'de';
+            vSFM_Language           = 'German';
+            break;
+        case 'de':
+            vSFM_BS_Language        = 'de';
+            vSFM_Language           = 'German';
+            break;
+        case 'swedish':
+            vSFM_BS_Language        = 'sv';
+            vSFM_Language           = 'Swedish';
+            break;
+        case 'sv':
+            vSFM_BS_Language        = 'sv';
+            vSFM_Language           = 'Swedish';
+            break;
+        case 'arabic':
+            vSFM_BS_Language        = 'ar';
+            vSFM_Language           = 'Arabic';
+            break;
+        case 'ar':
+            vSFM_BS_Language        = 'ar';
+            vSFM_Language           = 'Arabic';
+            break;
+        default:
+            vSFM_BS_Language        = 'en_US';
+            vSFM_Language           = 'English';
+    }
+
+}
+
+function SFM_Process() {
+
+    console.log("## SFM_PROCESS CALLED ##");
+
+    vSFM_Experience 		= (vSFM_Experience == null) ? '' : vSFM_Experience,
+    vSFM_Brand 			= (vSFM_Brand == null) ? '' : vSFM_Brand,
+    vSFM_Country 		= (vSFM_Country == null) ? '' : vSFM_Country,
+    vSFM_Language 		= (vSFM_Language == null) ? '' : vSFM_Language,
+    vSFM_BS_Language 		= (vSFM_BS_Language == null) ? '' : vSFM_BS_Language,
+    vSFM_Launch_URL 		= (vSFM_Launch_URL == null) ? '' : vSFM_Launch_URL,
+    vSFM_First_Name		= (vSFM_First_Name == null) ? '' : vSFM_First_Name,
+    vSFM_Last_Name 		= (vSFM_Last_Name == null) ? '' : vSFM_Last_Name,
+    vSFM_Email 			= (vSFM_Email == null) ? '' : vSFM_Email,
+    vSFM_Phone 			= (vSFM_Phone == null) ? '' : vSFM_Phone,
+    vSFM_Authenticated_ID_1 	= (vSFM_Authenticated_ID_1 == null) ? '' : vSFM_Authenticated_ID_1,
+    vSFM_Authenticated_ID_2 	= (vSFM_Authenticated_ID_2 == null) ? '' : vSFM_Authenticated_ID_2,
+    vSFM_Token		 	= (vSFM_Token == null) ? '' : vSFM_Token,
+    vSFM_VIN_1 			= (vSFM_VIN_1 == null) ? '' : vSFM_VIN_1;
+    vSFM_VIN_2 			= (vSFM_VIN_2 == null) ? '' : vSFM_VIN_2;
+    vSFM_VIN_3 			= (vSFM_VIN_3 == null) ? '' : vSFM_VIN_3;
+    vSFM_VIN_4 			= (vSFM_VIN_4 == null) ? '' : vSFM_VIN_4;
+    vSFM_VIN_5 			= (vSFM_VIN_5 == null) ? '' : vSFM_VIN_5;
+    vSFM_VIN_6 			= (vSFM_VIN_6 == null) ? '' : vSFM_VIN_6;
+    vSFM_VIN_7 			= (vSFM_VIN_7 == null) ? '' : vSFM_VIN_7;
+    vSFM_VIN_8 			= (vSFM_VIN_8 == null) ? '' : vSFM_VIN_8;
+    vSFM_VIN_9 			= (vSFM_VIN_9 == null) ? '' : vSFM_VIN_9;
+    vSFM_VIN_10 		= (vSFM_VIN_10 == null) ? '' : vSFM_VIN_10;
+    vSFM_VIN_11 		= (vSFM_VIN_11 == null) ? '' : vSFM_VIN_11;
+    vSFM_VIN_12 		= (vSFM_VIN_12 == null) ? '' : vSFM_VIN_12;
+    vSFM_VIN_13 		= (vSFM_VIN_13 == null) ? '' : vSFM_VIN_13;
+    vSFM_VIN_14 		= (vSFM_VIN_14 == null) ? '' : vSFM_VIN_14;
+    vSFM_VIN_15 		= (vSFM_VIN_15 == null) ? '' : vSFM_VIN_15;
+
+    if (vSFM_First_Name != '' || vSFM_Last_Name != '' || vSFM_Authenticated_ID_1 != '' || vSFM_Authenticated_ID_2 != '' ) {
+        vSFM_Auth = true;
+    }else{
+        vSFM_Auth = false;
+    }
+
+    if (vSFM_Auth && vSFM_ESD_Develper_Name_A !=  null) {
+        vSFM_ESD                = vSFM_ESD_Site_A;
+        vSFM_ESD_Develper_Name  = vSFM_ESD_Develper_Name_A;
+    }else if ( vSFM_ESD_Site_UA != null ){
+        vSFM_ESD                = vSFM_ESD_Site_UA;
+        vSFM_ESD_Develper_Name  = vSFM_ESD_Develper_Name_UA;
+    }
+
+    console.log("## ESD Dev Name: " + vSFM_ESD_Develper_Name);
+    console.log("## ESD Site" + vSFM_ESD);
+
+
+}
+
+function SFM_Console_Log() {
+
+        console.log("## HIDDEN PRE-CHAT VARIABLES ##");
+        console.log("## Environment: "+ vSFM_Environment);
+        console.log("## Experience: " + vSFM_Experience);
+        console.log("## Brand: " + vSFM_Brand);
+        console.log("## Language: " + vSFM_Language);
+        console.log("## Language Code: " + vSFM_BS_Language);
+        console.log("## Country: " + vSFM_Country);
+        console.log("## Is Auth: " + vSFM_Auth);
+        console.log("## Hide Button: " + vSFM_Hide_Button);
+        console.log("## Launch URL: " +  vSFM_Launch_URL);
+
+        if (vSFM_Auth) {
+
+            console.log('## AUTH VALUES ##');
+            console.log('## Auth First Name: ' + vSFM_First_Name);
+            console.log('## Auth Last Name: ' + vSFM_Last_Name);
+            console.log('## Auth Email: ' + vSFM_Email);
+            console.log('## Auth Phone: ' + vSFM_Phone);
+            console.log('## Auth ID 1: ' + vSFM_Authenticated_ID_1);
+            console.log('## Auth ID 2: ' + vSFM_Authenticated_ID_2);
+            console.log('## Auth Token: ' + vSFM_Token);
+            console.log('## Auth VIN 1: ' + vSFM_VIN_1);
+            console.log('## Auth VIN 2: ' + vSFM_VIN_2);
+            console.log('## Auth VIN 3: ' + vSFM_VIN_3);
+            console.log('## Auth VIN 4: ' + vSFM_VIN_4);
+            console.log('## Auth VIN 5: ' + vSFM_VIN_5);
+            console.log('## Auth VIN 6: ' + vSFM_VIN_6);
+            console.log('## Auth VIN 7: ' + vSFM_VIN_7);
+            console.log('## Auth VIN 8: ' + vSFM_VIN_8);
+            console.log('## Auth VIN 9: ' + vSFM_VIN_9);
+            console.log('## Auth VIN 10: ' + vSFM_VIN_10);
+            console.log('## Auth VIN 11: ' + vSFM_VIN_11);
+            console.log('## Auth VIN 12: ' + vSFM_VIN_12);
+            console.log('## Auth VIN 13: ' + vSFM_VIN_13);
+            console.log('## Auth VIN 14: ' + vSFM_VIN_14);
+            console.log('## Auth VIN 15: ' + vSFM_VIN_15);
+
+        }
+
+}

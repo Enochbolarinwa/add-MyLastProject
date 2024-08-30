@@ -1,0 +1,15 @@
+vSFM_Brand                  = 'Chevrolet';
+vSFM_Experience             = 'Chevrolet';  
+
+var vSFM_ESD                = 'ESWchevroletcomWebUnau1697310369741';
+var vSFM_ESD_Develper_Name  = 'chevrolet_com_Web_Unauth';
+
+
+vSFM_ESD_Develper_Name_UA   = 'chevrolet_com_Web_Unauth';
+vSFM_ESD_Site_UA            = 'ESWchevroletcomWebUnau1697310369741';
+
+vSFM_ESD_Develper_Name_A    = 'chevrolet_com_Web_Auth';
+vSFM_ESD_Site_A             = 'ESWchevroletcomWebAuth1697310231782';
+
+//Do not update
+var vSFM_BS_URL             = vSFM_ORG_URL_Site + '/'+vSFM_ESD+'/assets/js/bootstrap.min.js';

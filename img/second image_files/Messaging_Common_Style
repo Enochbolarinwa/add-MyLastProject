@@ -1,0 +1,20 @@
+.embedded-messaging > .embeddedMessagingFrame[class~="isMaximized"] {
+    height:475px !important;   
+}
+div#embedded-messaging button#embeddedMessagingConversationButton {
+    margin: 0; !important;
+    padding: 0; !important;
+}
+.embeddedMessagingConversationButton {
+    background: var(--eswHeaderColor, #1a1b1e) !important;
+}
+.embeddedMessagingConversationButton:focus {
+    box-shadow: 0 0 3px 3px var(--eswSecondaryColor, #005290) !important;
+}
+.embeddedMessagingConversationButtonWrapper .embeddedMessagingConversationButton:not(.no-hover):hover {
+    background: var(--eswHeaderColor, #1a1b1e) !important;
+    opacity: 0.6;
+    outline: 0;
+    transition-timing-function: ease-in-out;
+    transition: all 0.2s;
+}
